@@ -1,0 +1,70 @@
+.grid-container {
+  /* margin: 20px; */
+  font-family: 'Work Sans', sans-serif;
+}
+
+.home-toolbar {
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; */
+  color: #004a9f;
+  border-radius: 10px;
+}
+
+.tool-content1 {
+  margin: 5px;
+  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.tool-content2 {
+  margin: 15px;
+  /* margin-left: calc(100vw - 560px); */
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-weight: bold;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+}
+
+.more-button {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  color: #004a9f;
+}
+
+.dashboard-card-content {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.header-img {
+  /* display: flex; */
+  /* background-size:auto; */
+  /* justify-self: center; */
+  /* margin-bottom: 5px; */
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  background-color:rgb(244, 243, 243);
+}
+
+.card-title {
+  color: #004a9f; 
+  font-weight: bold; 
+  font-size: medium;
+  margin-left: 30px;
+}
+
+/* mat-card-header {
+  display: flex;
+  align-items: center;
+} */

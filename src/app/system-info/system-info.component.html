@@ -1,0 +1,36 @@
+<div id="card-div">
+    <form [formGroup]="sysInfoForm" novalidate (ngSubmit)="onSubmit()">
+        <mat-card class="mat-elevation-z8 login-card">
+        <mat-card-header>
+          <div mat-card-avatar class="header-image"></div>
+          <mat-card-title class="mat-display-1 title-font">System Info</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Numerator" formControlName="num">
+                <mat-error *ngIf="sysInfoForm.controls['num'].hasError('required')">
+                  Numerator is required!
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Denominator" formControlName="den">
+                <mat-error *ngIf="sysInfoForm.controls['den'].hasError('required')">
+                  Demoninator is required!
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button [disabled]="sysInfoForm.invalid" color="primary" class="main-btn" type="submit">Submit</button>
+          <button mat-raised-button style="background-color: #ffd740; color: black" type="reset">Clear</button>
+        </mat-card-actions>
+      </mat-card>
+    </form>  
+  </div> 

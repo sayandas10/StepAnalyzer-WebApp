@@ -1,0 +1,47 @@
+<div class="grid-container">
+  <mat-toolbar class="home-toolbar">
+    <span class="mat-display-1 tool-content1">Dashboard</span>
+    <button mat-button class="tool-content2" (click)="_logout()">
+      <mat-icon>logout</mat-icon>
+      <span style="font-size: medium; font-weight:bold;">Logout</span>
+    </button>
+  </mat-toolbar>
+  <mat-grid-list cols="2" rowHeight="145px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <img mat-card-avatar [src]="card.imgurl" alt="Image" class="header-img mat-elevation-z1">
+          <mat-card-title class="card-title">
+            {{card.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider style="margin-top: 5px; margin-bottom: 5px;"></mat-divider>
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.title==='System Info'" style="color: #004a9f; margin-top: 10px;">
+            <div [mathjax]="tf" style="color:#004a9f; margin-bottom: 5px;"></div>
+            Find Transfer Function, Order, Type & Stability of any System!
+          </div>
+          <div *ngIf="card.title==='Step Response Analysis'" style="color: #004a9f; margin-top: 60px;">
+            <div [mathjax]="stepresp" style="color:#004a9f; margin-bottom: 15px;"></div>
+            Find Peak Time, Rise Time, Settling Time & Overshoot from Step Response of any System!
+          </div>
+          <div *ngIf="card.title==='System Response (Plot)'" style="color: #004a9f; margin-top: 60px;">
+            <mat-icon style="font-size: 40px; height: 40px; width: 40px;">insights</mat-icon><br>
+            Explore different Response plots of any System!
+          </div>
+        </mat-card-content>
+        <mat-card-footer>
+          <button mat-button *ngIf="card.title==='System Info'" class="more-button" routerLink="/sysinfo">
+            <span style="font-weight: bold;">Expand</span>
+          </button>
+          <button mat-button *ngIf="card.title==='Step Response Analysis'" class="more-button" routerLink="/stepresponse">
+            <span style="font-weight: bold;">Expand</span>
+          </button>
+          <button mat-button *ngIf="card.title==='System Response (Plot)'" class="more-button" routerLink="/sysresp">
+            <span style="font-weight: bold;">Expand</span>
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

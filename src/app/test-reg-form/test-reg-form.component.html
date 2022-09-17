@@ -1,0 +1,97 @@
+<div id="card-div">
+  <form [formGroup]="regForm" novalidate (ngSubmit)="onSubmit()">
+      <mat-card class="mat-elevation-z8 login-card">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title class="mat-display-1 title-font">Create Account</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Full Name" formControlName="fullname">
+              <mat-error *ngIf="regForm.controls['fullname'].hasError('required')">
+                Full name is required!
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Username" formControlName="uname">
+              <mat-error *ngIf="regForm.controls['uname'].hasError('required')">
+                Username is required!
+              </mat-error>
+              <mat-error *ngIf="regForm.controls['uname'].hasError('pattern')">
+                Invalid username pattern: Refer to info!
+              </mat-error>
+              <mat-error *ngIf="regForm.controls['uname'].hasError('minlength')
+                                || regForm.controls['uname'].hasError('maxlength')">
+                Username should have 6-8 characters
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <textarea matInput placeholder="Address" formControlName="address"></textarea>
+              <!-- <mat-error *ngIf="regForm.controls['address'].hasError('required')">
+                Full name is required!
+              </mat-error> -->
+            </mat-form-field>
+          </div>
+          <div class="col side-input">
+            <mat-form-field class="full-width">
+              <input matInput type="tel" placeholder="Contact Number" formControlName="contact">
+              <mat-error *ngIf="regForm.controls['contact'].hasError('required')">
+                Contact number is required!
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput type="password" placeholder="Password" formControlName="pwd">
+              <mat-error *ngIf="regForm.controls['pwd'].hasError('required')">
+                Password is required!
+              </mat-error>
+              <mat-error *ngIf="regForm.controls['pwd'].hasError('pattern')">
+                Invalid password pattern: Refer to info! 
+              </mat-error>
+              <mat-error *ngIf="regForm.controls['pwd'].hasError('minlength')
+                                || regForm.controls['pwd'].hasError('maxlength')">
+                Password should have 8-12 characters
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput type="password" placeholder="Confirm Password" formControlName="rpwd">
+              <mat-error *ngIf="regForm.controls['rpwd'].hasError('required')">
+                Retype Password!
+              </mat-error>
+              <mat-error *ngIf="regForm.controls['rpwd'].hasError('confirmedValidator')">
+                Password didn't match!
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row end">
+            <a href="#" style="padding: 3px;">Forgot password?</a>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button [disabled]="regForm.invalid" color="primary" class="main-btn" type="submit">Register</button>
+        <button mat-raised-button style="background-color: #ffd740; color: black" type="reset">Clear</button>
+        <button mat-icon-button matTooltip="Username and Password guide" matTooltipPosition="after" (click)="openBottomSheet()">
+          <mat-icon>help</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>  
+</div>
